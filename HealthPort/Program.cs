@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace HealthPort
 {
@@ -11,25 +11,18 @@ namespace HealthPort
             myMemberServices.subscriberid = 123456;
             myMemberServices.primaryaccountholdersname = "Jane";
             myMemberServices.emailaddress = "janejohn@yahoo.com";
-            myMemberServices.MemberSince = 01/01/2001;
-            myMemberServices.statements = 
-            myMemberServices.Balanceavailableindeductiblle = 12345
+            myMemberServices.MemberSince = new DateTime(2001, 1, 1);
+            myMemberServices.statements = new DateTime(2001, 1, 1);
+            myMemberServices.BalanceAvailableIndeductible = 1234;
 
             var myMemberservices2 = new MemberServices();
             myMemberServices.subscribername = "Johny";
             myMemberServices.subscriberid = 123455;
             myMemberServices.primaryaccountholdersname = "Janel";
             myMemberServices.emailaddress = "janeljohny@yahoo.com";
-            myMemberServices.MemberSince = 01 / 01 / 2001;
-            myMemberServices.statements =
-            myMemberServices.Balanceavailableindeductiblle = 12345
-
-
-
-
-
-
-
+            myMemberServices.MemberSince = new DateTime(2001, 1, 1);
+            myMemberServices.statements = new DateTime(2001, 1, 1);
+            myMemberServices.BalanceAvailableIndeductible = 12345;
         }
     }
 }
