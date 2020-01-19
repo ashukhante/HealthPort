@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,18 +10,34 @@ namespace HealthPort
 /// </summary>
     class MemberServices
     {
-        #region Member Services properties
+        #region properties
         /// <summary>
         /// Unique Insurnace Information for the subscriber
         /// </summary>
-        public int subscriberid { get; set; }
-        public string subscribername { get; set; }
-        public string primaryaccountholdersname { get; set; }
+        public int SubscriberId { get; set; }
+        public string SubscriberName { get; set; }
+        public string PrimaryAccountholdersName { get; set; }
         public DateTime MemberSince { get; set; }
-        public string emailaddress { get; set; }
-        public float Balanceavailableindeductiblle { get; set; }
-        public DateTime statements { get; set; }
+        public string EmailAddress { get; set; }
+        public float BalanceAvailableIndeductible { get; set; }
+        public DateTime Statements { get; set; }
+        #endregion
+
+        #region  Methods
+        /// <summary>
+        /// Add funds to the balance
+        /// </summary>
+        /// <param name="amount">Amount to add towards existing funds</param>
+        public void AddFundsobalace(float amount)
+        {
+            BalanceAvailableIndeductible += amount;
+        }
+
+        public float WithdrawToPayTheBill(float amount)
+        {
+            BalanceAvailableIndeductible -= amount;
+            return BalanceAvailableIndeductible;
+        }
         #endregion
     }
-}
 }
