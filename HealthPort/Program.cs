@@ -6,15 +6,8 @@ namespace HealthPort
     {
         static void Main(string[] args)
         {
-           var myMemberServices = new MemberServices();
-            myMemberServices.SubscriberName = "John";
-            //myMemberServices.SubscriberId = 123456;
-            myMemberServices.PrimaryAccountholdersName = "Jane";
-            myMemberServices.EmailAddress = "janejohn@yahoo.com";
-            //myMemberServices.MemberSince = new DateTime(2001, 1, 1);
-            //myMemberServices.Statements = new DateTime(2001, 1, 1);
-            //myMemberServices.BalanceAvailableInDeductible = 1234;
-            myMemberServices.AddFundstobalace(1000);
+            var myMemberServices = Insurance.CreateMemberServices("x",
+                "y", "x@y.z");
             Console.WriteLine($"SubscriberName: {myMemberServices.SubscriberName},SubscriberId: {myMemberServices.SubscriberId}, PrimaryAccountholdersName: {myMemberServices.PrimaryAccountholdersName}, EmailAddress: {myMemberServices.EmailAddress},MemberSince.{myMemberServices.MemberSince}, Statements.{myMemberServices.Statements},BalanceAvailableInDeductible.{myMemberServices.BalanceAvailableInDeductible}");
 
            var myMemberservices2 = new MemberServices();
