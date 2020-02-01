@@ -6,11 +6,56 @@ namespace HealthPort
     {
         static void Main(string[] args)
         {
-            var myMemberServices = Insurance.CreateMemberServices("x", "y", "x@y.z");
-            Console.WriteLine($"SubscriberName: {myMemberServices.SubscriberName},SubscriberId: {myMemberServices.SubscriberId}, PrimaryAccountholdersName: {myMemberServices.PrimaryAccountholdersName}, EmailAddress: {myMemberServices.EmailAddress},MemberSince.{myMemberServices.MemberSince}, Statements.{myMemberServices.Statements},BalanceAvailableInDeductible.{myMemberServices.BalanceAvailableInDeductible}");
+            Console.WriteLine("*******************");
+            Console.WriteLine("Welcome to my Insurance!");
 
-           var myMemberservices2 = Insurance.CreateMemberServices("a", "b", "a@b.c");
-            Console.WriteLine($"SubscriberName: {myMemberservices2.SubscriberName},SubscriberId: {myMemberservices2.SubscriberId}, PrimaryAccountholdersName: {myMemberservices2.PrimaryAccountholdersName}, EmailAddress: {myMemberservices2.EmailAddress},MemberSince.{myMemberservices2.MemberSince}, Statements.{myMemberservices2.Statements},BalanceAvailableInDeductible.{myMemberservices2.BalanceAvailableInDeductible}");
+            while (true)
+            {
+                Console.WriteLine("0. Exit");
+                Console.WriteLine("1. Create new memberservices");
+                Console.WriteLine("2. AddFundstobalace");
+                Console.WriteLine("3. WithdrawToPayTheBil");
+                Console.WriteLine("4. View all statements");
+
+                Console.Write("Select an option: ");
+                var option = Console.ReadLine();
+                switch (option)
+                {
+                    case "0":
+                        Console.WriteLine("Thank you for visiting the Healthport!");
+                        return;
+                    case "1":
+                        Console.Write("Account name: ");
+                        var primaryAccountholdersName = Console.ReadLine();
+
+                        Console.Write("Email Address: ");
+                        var emailAddress = Console.ReadLine();
+
+                        Console.Write("subscriberName: ");
+                        var subscriberName = Console.ReadLine();
+
+                        
+
+                        var account = Insurance.CreateMemberServices(subscriberName, primaryAccountholdersName, emailAddress);
+                        Console.WriteLine($"AN: {account.SubscriberId}, " +
+                            $"SName: {account.SubscriberName}, " +
+                            $"Balance: {account.BalanceAvailableInDeductible:C}, " +
+                            $"MS: {account.MemberSince}, " +
+                            $"EA: {account.EmailAddress} ");
+
+                        break;
+                    case "2":
+
+                    case "3":
+                    case "4":
+                    case "5":
+                    default:
+                        Console.WriteLine("Invalid option! Try again!");
+                        break;
+                }
+
+            }
         }
+
     }
 }
