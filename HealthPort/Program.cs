@@ -34,8 +34,6 @@ namespace HealthPort
                         Console.Write("subscriberName: ");
                         var subscriberName = Console.ReadLine();
 
-                        
-
                         var account = Insurance.CreateMemberServices(subscriberName, primaryAccountholdersName, emailAddress);
                         Console.WriteLine($"AN: {account.SubscriberId}, " +
                             $"SName: {account.SubscriberName}, " +
