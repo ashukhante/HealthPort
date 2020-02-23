@@ -11,16 +11,17 @@ namespace HealthPort
     class MemberServices
     {
         private static int lastSubscriberId = 0;
+
         #region properties
         /// <summary>
         /// Unique Insurnace Information for the subscriber
         /// </summary>
-        public int SubscriberId { get; set; }
+        public int SubscriberId { get; private set; }
         public string SubscriberName { get; set; }
         public string PrimaryAccountholdersName { get; set; }
         public DateTime MemberSince { get; private set; }
         public string EmailAddress { get; set; }
-        public float BalanceAvailableInDeductible { get; private set; }
+        public float BalanceAvailableInDeductible { get; set; }
         public DateTime Statements { get; private set; }
         #endregion
 
@@ -32,6 +33,11 @@ namespace HealthPort
             MemberSince = DateTime.UtcNow;
         }
 
+        internal static void where(Func<object, object> p)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
 
@@ -40,7 +46,7 @@ namespace HealthPort
         /// Add funds to the balance
         /// </summary>
         /// <param name="amount">Amount to add towards existing funds</param>
-        public void AddFundstobalace(float amount)
+        public void AddFundstobalance(float amount)
         {
             BalanceAvailableInDeductible += amount;
         }
