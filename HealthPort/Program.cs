@@ -13,9 +13,10 @@ namespace HealthPort
             {
                 Console.WriteLine("0. Exit");
                 Console.WriteLine("1. Create new memberservices");
-                Console.WriteLine("2. AddFundstobalace");
-                Console.WriteLine("3. WithdrawToPayTheBil");
-                Console.WriteLine("4. View all statements");
+                Console.WriteLine("2. List members");
+                Console.WriteLine("3. AddFundstobalance");
+                Console.WriteLine("4. WithdrawToPayTheBil");
+                Console.WriteLine("5. View all statements");
 
                 Console.Write("Select an option: ");
                 var option = Console.ReadLine();
@@ -34,18 +35,36 @@ namespace HealthPort
                         Console.Write("subscriberName: ");
                         var subscriberName = Console.ReadLine();
 
+
+
                         var account = Insurance.CreateMemberServices(subscriberName, primaryAccountholdersName, emailAddress);
                         Console.WriteLine($"AN: {account.SubscriberId}, " +
                             $"SName: {account.SubscriberName}, " +
                             $"Balance: {account.BalanceAvailableInDeductible:C}, " +
                             $"MS: {account.MemberSince}, " +
                             $"EA: {account.EmailAddress} ");
-
                         break;
                     case "2":
-
+                        Insurance.ListMemebers();
+                        break;
                     case "3":
+                        {
+                            Console.Write("Subscriber ID: ");
+                            var subscriberId = Console.ReadLine();
+                            Console.Write("Balance: ");
+                            var balance = Console.ReadLine();
+                            Insurance.Addfundstobalance(Convert.ToInt32(subscriberId), (float)Convert.ToDecimal(balance));
+                            break;
+                        }
                     case "4":
+                        {
+                            Console.Write("Subscriber ID: ");
+                            var subscriberId = Console.ReadLine();
+                            Console.Write("Balance: ");
+                            var balance = Console.ReadLine();
+                            Insurance.WithdrawToPayTheBill(Convert.ToInt32(subscriberId), (float)Convert.ToDecimal(balance));
+                            break;
+                        }
                     case "5":
                     default:
                         Console.WriteLine("Invalid option! Try again!");
